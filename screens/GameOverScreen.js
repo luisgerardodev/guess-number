@@ -5,7 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import BodyText from "../components/BodyText";
@@ -34,59 +34,59 @@ const GameOverScreen = ({ userChoice, guessRounds, onRestart }) => {
   });
 
   return (
-    <ScrollView>
-      <View style={styles.screen}>
-        <TitleText
-          style={{ ...styles.title, marginBottom: availableDeviceHeight / 30 }}
-        >
-          Game Over!
-        </TitleText>
-        <View
-          style={{
-            ...styles.imageContainer,
-            ...{
-              width:
-                availableDeviceWidth > 500
-                  ? availableDeviceWidth * 0.4
-                  : availableDeviceWidth * 0.7,
-              height:
-                availableDeviceWidth > 500
-                  ? availableDeviceWidth * 0.4
-                  : availableDeviceWidth * 0.7,
-              borderRadius: (availableDeviceWidth * 0.7) / 2,
-              marginVertical: availableDeviceHeight / 30,
-            },
-          }}
-        >
-          <Image
-            style={styles.image}
-            source={require("../assets/success.png")}
-            // source={{uri: 'https://p0.pikist.com/photos/622/113/summit-peak-cliff-rock-slope-travel-travel-destination-swiss-alps-alps.jpg'}}
-            resizeMode="cover"
-          />
-        </View>
-        <View
-          style={{
-            ...styles.resultContainer,
-            marginVertical: availableDeviceHeight / 60,
-          }}
-        >
-          <BodyText
+      <ScrollView>
+        <View style={styles.screen}>
+          <TitleText
+            style={{ ...styles.title, marginBottom: availableDeviceHeight / 30 }}
+          >
+            Game Over!
+          </TitleText>
+          <View
             style={{
-              ...styles.resultText,
-              fontSize: availableDeviceHeight < 400 ? 16 : 20,
+              ...styles.imageContainer,
+              ...{
+                width:
+                  availableDeviceWidth > 500
+                    ? availableDeviceWidth * 0.4
+                    : availableDeviceWidth * 0.7,
+                height:
+                  availableDeviceWidth > 500
+                    ? availableDeviceWidth * 0.4
+                    : availableDeviceWidth * 0.7,
+                borderRadius: (availableDeviceWidth * 0.7) / 2,
+                marginVertical: availableDeviceHeight / 30,
+              },
             }}
           >
-            Your phone needed{" "}
-            <Text style={styles.highlight}>{guessRounds}</Text> rounds to guess
-            the number <Text style={styles.highlight}>{userChoice}</Text>
-          </BodyText>
+            <Image
+              style={styles.image}
+              source={require("../assets/success.png")}
+              // source={{uri: 'https://p0.pikist.com/photos/622/113/summit-peak-cliff-rock-slope-travel-travel-destination-swiss-alps-alps.jpg'}}
+              resizeMode="cover"
+            />
+          </View>
+          <View
+            style={{
+              ...styles.resultContainer,
+              marginVertical: availableDeviceHeight / 60,
+            }}
+          >
+            <BodyText
+              style={{
+                ...styles.resultText,
+                fontSize: availableDeviceHeight < 400 ? 16 : 20,
+              }}
+            >
+              Your phone needed{" "}
+              <Text style={styles.highlight}>{guessRounds}</Text> rounds to guess
+              the number <Text style={styles.highlight}>{userChoice}</Text>
+            </BodyText>
+          </View>
+          <View style={styles.button}>
+            <MainButton onPress={onRestart}>NEW GAME</MainButton>
+          </View>
         </View>
-        <View style={styles.button}>
-          <MainButton onPress={onRestart}>NEW GAME</MainButton>
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
   );
 };
 
